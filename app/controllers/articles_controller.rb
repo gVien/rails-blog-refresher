@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  def index
+    @articles = Article.all
+  end
 
   def show #3
     @article = Article.find(params[:id])
