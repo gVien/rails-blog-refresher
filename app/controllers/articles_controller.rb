@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   # Interesting that new can be comment out but Rails still
   # renders the new.html.erb
   def new # 1 for reference
+    @article = Article.new  # 5, form still renders to new without this
   end
 
 
@@ -18,8 +19,11 @@ class ArticlesController < ApplicationController
   def create  #2
     @article = Article.new(article_params)
 
-    @article.save
-    redirect_to @article
+    if @article.save
+      redirect_to @article
+    else
+      render "new"
+    end
   end
 
   private
