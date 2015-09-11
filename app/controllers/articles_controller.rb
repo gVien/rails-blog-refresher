@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   # Interesting that new can be comment out but Rails still
   # renders the new.html.erb
   def new # 1 for reference
-    @article = Article.new  # 5, form still renders to new without this
+    @article = Article.new  # 5, form still renders to new without this but without this, the errors message will be nil (if error is added in the show.html.erb)
   end
 
 
