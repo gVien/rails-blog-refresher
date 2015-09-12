@@ -13,6 +13,7 @@
   <% if index.even? %>
     <div class="even-comment">
       <!-- this renders the partial inside the comments folder -->
+      <!-- adding "" for comment will make Rails thinks that it is inside articles/ folder -->
       <%= render comment %>
     </div>
   <% else %>
@@ -23,19 +24,9 @@
   <% end %>
 <% end %>
 
-<%= form_for ([@article, @article.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %> <br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit "Post" %>
-  </p>
-<% end %>
+<h2>Add a comment:</h2>
+<!-- Rails ignores the _ in form -->
+<%= render "comments/form" %>
 
 <%= link_to "Back", articles_path %> |
 <%= link_to "Edit", edit_article_path %>
