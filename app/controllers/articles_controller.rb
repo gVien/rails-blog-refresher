@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  # require authentication for all but index and show
+  http_basic_authenticate_with name: "blog", password: "blogging", except: [:index, :show]
+
   def index #4
     @articles = Article.all
   end
@@ -39,7 +42,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy #8
     @article = Article.find(params[:id])
     @article.destroy
 

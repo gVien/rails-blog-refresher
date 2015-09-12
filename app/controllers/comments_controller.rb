@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+
+  # require authentication for all but destroy
+  http_basic_authenticate_with name: "blog", password: "blogging", except: [:destroy]
+
   def create
     # find the article
     @article = Article.find(params[:article_id])
