@@ -12,25 +12,13 @@
 <% @article.comments.each_with_index do |comment, index| %>
   <% if index.even? %>
     <div class="even-comment">
-      <p>
-        <strong>Commenter:</strong>
-        <%= comment.commenter %>
-      </p>
-      <p>
-        <strong>Comment:</strong>
-        <%= comment.body %>
-      </p>
+      <!-- this renders the partial inside the comments folder -->
+      <%= render comment %>
     </div>
   <% else %>
     <div class="odd-comment">
-      <p>
-        <strong>Commenter:</strong>
-        <%= comment.commenter %>
-      </p>
-      <p>
-        <strong>Comment:</strong>
-        <%= comment.body %>
-      </p>
+      <!-- render partial can also be used -->
+      <%= render partial: comment %>
     </div>
   <% end %>
 <% end %>
