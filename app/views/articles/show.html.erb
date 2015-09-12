@@ -1,0 +1,32 @@
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<h2>Comments</h2>
+<% @article.comments.each_with_index do |comment, index| %>
+  <% if index.even? %>
+    <div class="even-comment">
+      <!-- this renders the partial inside the comments folder -->
+      <!-- adding "" for comment will make Rails thinks that it is inside articles/ folder -->
+      <%= render comment %>
+    </div>
+  <% else %>
+    <div class="odd-comment">
+      <!-- render partial can also be used -->
+      <%= render partial: comment %>
+    </div>
+  <% end %>
+<% end %>
+
+<h2>Add a comment:</h2>
+<!-- Rails ignores the _ in form -->
+<%= render "comments/form" %>
+
+<%= link_to "Back", articles_path %> |
+<%= link_to "Edit", edit_article_path %>

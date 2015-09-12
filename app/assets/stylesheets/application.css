@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+.odd-comment, .even-comment {
+  height: 100%;
+  width: 100%;
+  border: 2px solid black;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.odd-comment {
+  background-color: teal;
+}
+
+.even-comment {
+  background-color: green;
+}
